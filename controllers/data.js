@@ -2,7 +2,8 @@ const Data = require('../models/data');
 
 module.exports = {
     index,
-    create
+    create,
+    delete: deleteOne
 };
 
 function index(req, res){
@@ -19,5 +20,10 @@ function create(req, res) {
         todo: req.body.todo,
         done: false,
     });
+    res.redirect('/');
+}
+
+function deleteOne(req, res) {
+    Data.data.splice(req.params.id, 1);
     res.redirect('/');
 }

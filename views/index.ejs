@@ -11,12 +11,15 @@
     <% } %>
     <ul>
       <% data.forEach(function(d){ %>
-        <li><%= d.todo %> - <%= if(!d.done) ? Not Done : "" %> </li>
+        <li>
+          <%= d.todo %> - <%= d.done ? "Not Done" : "" %> 
+          <form action="/<%= data.indexOf(d) %>?_method=DELETE" method="POST"><button type="submit">DELETE</button></form>
+        </li>
       <% }) %>
     </ul>
       <hr>
     <form action="/" method="POST">
-      <input type="text" name="todo" required>
+      <input type="text" name="todo" required autofocus>
       <button type="submit">Add To Do</button>
     </form>
   </body>

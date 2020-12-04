@@ -15,6 +15,9 @@ function index(req, res){
 }
 
 function create(req, res) {
-    Data.data.push(req.body.todo);
+    Data.data.push({
+        todo: req.body.todo,
+        done: false,
+    });
     res.redirect('/');
 }

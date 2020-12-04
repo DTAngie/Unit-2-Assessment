@@ -9,6 +9,11 @@
     <% if(data.length === 0) { %>
       <h3>There are no To Dos yet!</h3>
     <% } %>
+    <ul>
+      <% data.forEach(function(d){ %>
+        <li><%= d.todo %> - <%= if(!d.done) ? Not Done : "" %> </li>
+      <% }) %>
+    </ul>
       <hr>
     <form action="/" method="POST">
       <input type="text" name="todo" required>
